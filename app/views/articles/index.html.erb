@@ -2,14 +2,12 @@
 
 <h1>Articles</h1>
 
+<%= link_to 'Create a new Article', new_article_path %>
+
 <% @articles.each do |article| %>
-  <article>
+  <article class="snippet">
     <h2><%= link_to article.title, article %></h2>
-    <p>By: <%= link_to article.user.name, article.user %></p>
+    <p class="author">By <%= link_to article.user.name, article.user %> on <%= article.updated_at.strftime("%-d %B %Y")  %></p>
     <%= truncate(article.body, length: 300) %>
   </article>
 <% end %>
-
-<br>
-
-<%= link_to 'New Article', new_article_path %>

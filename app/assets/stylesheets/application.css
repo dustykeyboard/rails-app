@@ -157,6 +157,9 @@ pre {
   border-radius: 0.2rem;
   margin: 1rem -1rem;
 }
+article.snippet .author {
+  font-size: 0.8rem;
+}
 article.snippet img {
   float: right;
   width: 5rem;

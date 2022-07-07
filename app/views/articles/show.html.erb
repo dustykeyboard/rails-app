@@ -2,11 +2,15 @@
 
 <h1><%= @article.title %></h1>
 
+<%= simple_format(@article.body) %>
+
 <p>
 <strong>Author:</strong>
-<%= link_to @article.user.name, @article.user %>
-| <%= link_to 'Edit', edit_article_path(@article) %>
+<%= link_to @article.user.name, @article.user %><br />
+<strong>Published</strong>: <%= @article.created_at.strftime("%-d %B %Y") %><br />
+<% if (@article.updated_at > @article.created_at) %>
+<strong>Updated</strong>: <%= @article.updated_at.strftime("%-d %B %Y") %><br />
+<% end %>
+<%= link_to 'Edit', edit_article_path(@article) %>
 </p>
-
-<%= simple_format(@article.body) %>
 

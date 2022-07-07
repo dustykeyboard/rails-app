@@ -2,25 +2,10 @@
 
 <h1>Authors</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
+<%= link_to 'Add a new Author', new_user_path %>
 
-  <tbody>
+<ul>
     <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to user.name, user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <li><%= link_to user.name, user %> has published <%= pluralize(user.articles.length, "article") %> since <%= user.created_at.strftime("%-d %B %Y") %></li>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'Add a new author', new_user_path %>
+  </ul>

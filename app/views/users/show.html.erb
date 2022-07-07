@@ -11,12 +11,18 @@
 </p>
 
 <p>
+  <strong>Joined:</strong>
+  <%= @user.created_at.strftime("%-d %B %Y") %>
+</p>
+
+<p>
   <strong>Articles:</strong>
   <ul>
   <% @user.articles.each do |article| %>
-    <li><%= link_to article.title, article %></li>
+    <li><%= link_to article.title, article %> (<%= article.updated_at.strftime("%-d %B %Y") %>)</li>
   <% end %>
   </ul>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %>
+<%= link_to 'Edit', edit_user_path(@user) %> | 
+<%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
