@@ -1,0 +1,9 @@
+<h1>Welcome to Rails Articles</h1>
+
+<% @articles.each do |article| %>
+  <article class="snippet">
+    <h2><%= link_to article.title, article %></h2>
+    <p class="author">By <%= link_to article.user.name, article.user %> on <%= article.updated_at.strftime("%-d %B %Y")  %></p>
+    <%= truncate(article.body, length: 300) %>
+  </article>
+<% end %>
