@@ -6,9 +6,17 @@
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong>Contact:</strong>
   <%= @user.email %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<p>
+  <strong>Articles:</strong>
+  <ul>
+  <% @user.articles.each do |article| %>
+    <li><%= link_to article.title, article %></li>
+  <% end %>
+  </ul>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %>
