@@ -37,12 +37,4 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     patch article_url(@article), params: { article: { body: @article.body, title: @article.title, user_id: @article.user_id } }
     assert_redirected_to article_url(@article)
   end
-
-  test "should destroy article" do
-    assert_difference('Article.count', -1) do
-      delete article_url(@article)
-    end
-
-    assert_redirected_to articles_url
-  end
 end
