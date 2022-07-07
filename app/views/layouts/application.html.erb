@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsApp</title>
+    <title>Rails News</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,15 @@
   </head>
 
   <body>
+    <nav>
+    <header><a href="/">🏠 Rails News</a></header>
+    <ul>
+      <li><a href="/" title="Articles">📰 Articles</a></li>
+      <li><a href="/users/" title="Authors">👤 Authors</a></li>
+      </ul>
+    </nav>
+    <main>
     <%= yield %>
+    </main>
   </body>
 </html>

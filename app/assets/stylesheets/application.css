@@ -13,3 +13,303 @@
  *= require_tree .
  *= require_self
  */
+:root {
+  --foreground: #3c363d;
+  --background: #fff;
+  --background2: #f3f2f4;
+  --code-background: #0e050e;
+  --link: #004d80;
+  --visited: purple;
+}
+@media print, (prefers-contrast: more) {
+  :root {
+    --foreground: #000;
+    --background2: #fff;
+  }
+}
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    --foreground: #ddd4df;
+    --background: #160d16;
+    --background2: #241824;
+    --link: #8989ff;
+    --visited: #e934e9;
+  }
+}
+@media screen and (prefers-color-scheme: dark) and (prefers-contrast: more) {
+  :root {
+    --foreground: #ffffff;
+    --background: #000000;
+    --background2: #413c41;
+    --link: #5858ff;
+    --visited: #bb2ebb;
+  }
+}
+@media (prefers-reduced-motion) {
+  * {
+    transition-duration: 0 !important;
+  }
+}
+html {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  font-family: sans-serif;
+  font-size: calc(0.5vw + 1rem);
+  background: var(--background);
+}
+body {
+  line-height: 1.5rem;
+  color: var(--foreground);
+  background: var(--background);
+  background-attachment: fixed;
+  box-sizing: border-box;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0.5rem 0.5rem 5rem;
+}
+main {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0.5em;
+  max-width: 36em;
+}
+a {
+  color: var(--link);
+}
+a:visited {
+  color: var(--visited);
+}
+nav ul {
+  text-align: center;
+  display: flex;
+  justify-content: stretch;
+}
+nav li,
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav a,
+nav a:visited {
+  color: var(--foreground);
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 1rem;
+  transition: color 0.2s ease-in, background 0.2s ease-in;
+  background: 0 0;
+  border-radius: 0.25rem;
+}
+nav a:hover {
+  color: var(--background);
+  background: var(--foreground);
+}
+nav a[aria-current] {
+  color: var(--foreground);
+  background: var(--background2);
+  pointer-events: none;
+}
+@media print {
+  nav ul {
+    display: none;
+  }
+}
+nav header a img {
+  display: inline-block;
+  vertical-align: middle;
+  width: 3em;
+  height: 3em;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  border: 0;
+  transform: rotateZ(0);
+}
+@media screen and (min-width: 800px) {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+h1 {
+  font-size: 2rem;
+  line-height: 1.1em;
+  font-weight: 400;
+}
+h2 {
+  font-size: 1.3rem;
+  line-height: 1.1em;
+  font-weight: 400;
+}
+.meta,
+article footer {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+article.snippet,
+blockquote,
+pre {
+  background: var(--background2);
+  padding: 1rem;
+  border-radius: 0.2rem;
+  margin: 1rem -1rem;
+}
+article.snippet img {
+  float: right;
+  width: 5rem;
+  margin: 0 0 1rem 1rem;
+}
+code {
+  background: var(--background2);
+}
+@media print, (prefers-contrast: more) {
+  article.snippet,
+  blockquote,
+  pre {
+    background: var(--background);
+    outline: 2px solid var(--background2);
+  }
+}
+pre {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+article.snippet > h2:first-of-type,
+article.snippet > h3:first-of-type,
+article.snippet > p:first-of-type,
+blockquote > h2:first-of-type,
+blockquote > h3:first-of-type,
+blockquote > p:first-of-type {
+  margin-top: 0;
+}
+article.snippet > :last-child,
+blockquote > :last-child {
+  margin-bottom: 0;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+img.block {
+  display: block;
+  margin: 0 auto;
+}
+hr {
+  height: 0.1rem;
+  width: 90%;
+  background: var(--link);
+  border: 0;
+  box-shadow: var(--background) 0.1rem 0.1rem 0.2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+figure {
+  background: var(--background2);
+  border-radius: 0.5rem;
+  padding: 0.3rem;
+  text-align: center;
+}
+figure img {
+  border-radius: 0.2rem;
+}
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #f8f8f2;
+  background: 0 0;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-size: 1em;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+pre[class*="language-"] {
+  margin: 1em -1rem;
+  padding: 1rem;
+  overflow: auto;
+  border-radius: 0.3em;
+}
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: var(--code-background);
+}
+:not(pre) > code[class*="language-"] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
+.token.cdata,
+.token.comment,
+.token.doctype,
+.token.prolog {
+  color: #708090;
+}
+.token.punctuation {
+  color: #f8f8f2;
+}
+.token.namespace {
+  opacity: 0.7;
+}
+.token.constant,
+.token.deleted,
+.token.property,
+.token.symbol,
+.token.tag {
+  color: #f92672;
+}
+.token.boolean,
+.token.number {
+  color: #ae81ff;
+}
+.token.attr-name,
+.token.builtin,
+.token.char,
+.token.inserted,
+.token.selector,
+.token.string {
+  color: #a6e22e;
+}
+.language-css .token.string,
+.style .token.string,
+.token.entity,
+.token.operator,
+.token.url,
+.token.variable {
+  color: #f8f8f2;
+}
+.token.atrule,
+.token.attr-value,
+.token.class-name,
+.token.function {
+  color: #e6db74;
+}
+.token.keyword {
+  color: #66d9ef;
+}
+.token.important,
+.token.regex {
+  color: #fd971f;
+}
+.token.bold,
+.token.important {
+  font-weight: 700;
+}
+.token.italic {
+  font-style: italic;
+}
+.token.entity {
+  cursor: help;
+}
