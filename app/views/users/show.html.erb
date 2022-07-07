@@ -15,6 +15,7 @@
   <%= @user.created_at.strftime("%-d %B %Y") %>
 </p>
 
+<% if @user.articles.length > 0 %>
 <p>
   <strong>Articles:</strong>
   <ul>
@@ -23,6 +24,7 @@
   <% end %>
   </ul>
 </p>
+<% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> | 
 <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
